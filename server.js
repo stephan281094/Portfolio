@@ -4,7 +4,7 @@ const express = require('express')
 const favicon = require('serve-favicon')
 const compression = require('compression')
 const serialize = require('serialize-javascript')
-const resolve = file => path.resolve(__dirname, file)
+const resolve = (file) => path.resolve(__dirname, file)
 
 const isProd = process.env.NODE_ENV === 'production'
 const serverInfo =
@@ -23,17 +23,16 @@ if (isProd) {
   // in development: setup the dev server with watch and hot-reload,
   // and update renderer / index HTML on file change.
   require('./setup-dev-server')(app, {
-    bundleUpdated: bundle => {
+    bundleUpdated: (bundle) => {
       renderer = createRenderer(bundle)
     },
-    indexUpdated: index => {
+    indexUpdated: (index) => {
       indexHTML = parseIndex(index)
     }
   })
 }
 
 function createRenderer (bundle) {
-  // https://github.com/vuejs/vue/blob/dev/packages/vue-server-renderer/README.md#why-use-bundlerenderer
   return require('vue-server-renderer').createBundleRenderer(bundle, {
     cache: require('lru-cache')({
       max: 1000,
@@ -43,19 +42,18 @@ function createRenderer (bundle) {
 }
 
 function parseIndex (template) {
-  const contentMarker = '<!-- APP -->'
-  const i = template.indexOf(contentMarker)
+  const i = template.indexOf('</body>')
   return {
     head: template.slice(0, i),
-    tail: template.slice(i + contentMarker.length)
+    tail: template.slice(i)
   }
 }
 
 const serve = (path, cache) => express.static(resolve(path), {
-  maxAge: cache && isProd ? 60 * 60 * 24 * 30 : 0
+  maxAge: cache && isProd ? 1000 * 60 * 60 * 24 * 30 : 0
 })
 
-app.use(serve('./public'))
+app.use(serve('./public', true))
 app.use(compression({ threshold: 0 }))
 app.use('/service-worker.js', serve('./dist/service-worker.js'))
 app.use('/dist', serve('./dist'))
@@ -65,18 +63,35 @@ app.get('*', (req, res) => {
     return res.end('waiting for compilation... refresh in a moment.')
   }
 
-  res.setHeader("Content-Type", "text/html")
-  res.setHeader("Server", serverInfo)
+  res.setHeader('Content-Type', 'text/html')
+  res.setHeader('Server', serverInfo)
 
   var s = Date.now()
   const context = { url: req.url }
   const renderStream = renderer.renderToStream(context)
 
   renderStream.once('data', () => {
-    res.write(indexHTML.head)
+    const {
+      title, htmlAttrs, bodyAttrs, link, style, script, noscript, meta
+    } = context.meta.inject()
+
+    res.write(`
+      <!DOCTYPE html>
+      <html data-vue-meta-server-rendered ${htmlAttrs.text()}>
+        <head>
+          ${meta.text()}
+          ${title.text()}
+          ${link.text()}
+          ${style.text()}
+          ${script.text()}
+          ${noscript.text()}
+          <title>Portfolio</title>
+        </head>
+        <body ${bodyAttrs.text()}>
+    `)
   })
 
-  renderStream.on('data', chunk => {
+  renderStream.on('data', (chunk) => {
     res.write(chunk)
   })
 
