@@ -5,7 +5,6 @@ const clientConfig = require('./config/webpack.client.config')
 const serverConfig = require('./config/webpack.server.config')
 
 module.exports = function setupDevServer (app, opts) {
-  // modify client config to work with hot middleware
   clientConfig.entry.app = ['webpack-hot-middleware/client', clientConfig.entry.app]
   clientConfig.output.filename = '[name].js'
   clientConfig.plugins.push(
@@ -13,7 +12,6 @@ module.exports = function setupDevServer (app, opts) {
     new webpack.NoErrorsPlugin()
   )
 
-  // dev middleware
   const clientCompiler = webpack(clientConfig)
   const devMiddleware = require('webpack-dev-middleware')(clientCompiler, {
     publicPath: clientConfig.output.publicPath,
@@ -22,6 +20,7 @@ module.exports = function setupDevServer (app, opts) {
       chunks: false
     }
   })
+
   app.use(devMiddleware)
   clientCompiler.plugin('done', () => {
     const fs = devMiddleware.fileSystem
@@ -39,6 +38,7 @@ module.exports = function setupDevServer (app, opts) {
   const serverCompiler = webpack(serverConfig)
   const mfs = new MFS()
   const outputPath = path.join(serverConfig.output.path, serverConfig.output.filename)
+
   serverCompiler.outputFileSystem = mfs
   serverCompiler.watch({}, (err, stats) => {
     if (err) throw err
