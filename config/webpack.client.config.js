@@ -15,7 +15,8 @@ const config = Object.assign({}, base, {
       name: 'vendor'
     }),
     new HTMLPlugin({
-      filename: '_index.html'
+      filename: '_index.html',
+      template: 'config/template.html'
     })
   ])
 })

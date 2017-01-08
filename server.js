@@ -38,10 +38,11 @@ function createRenderer (bundle) {
 }
 
 function parseIndex (template) {
-  const i = template.indexOf('</body>')
+  const contentMarker = '{{ marker }}'
+  const i = template.indexOf(contentMarker)
   return {
     head: template.slice(0, i),
-    tail: template.slice(i)
+    tail: template.slice(i + contentMarker.length)
   }
 }
 
@@ -71,20 +72,17 @@ app.get('*', (req, res) => {
       title, htmlAttrs, bodyAttrs, link, style, script, noscript, meta
     } = context.meta.inject()
 
-    res.write(`
-      <!DOCTYPE html>
-      <html data-vue-meta-server-rendered ${htmlAttrs.text()}>
-        <head>
-          ${meta.text()}
-          ${title.text()}
-          ${link.text()}
-          ${style.text()}
-          ${script.text()}
-          ${noscript.text()}
-          <title>Portfolio</title>
-        </head>
-        <body ${bodyAttrs.text()}>
-    `)
+    let head = indexHTML.head
+    head = head.replace('{{ meta-html-attrs }}', htmlAttrs.text())
+    head = head.replace('{{ meta-meta }}', meta.text())
+    head = head.replace('{{ meta-title }}', title.text())
+    head = head.replace('{{ meta-link }}', link.text())
+    head = head.replace('{{ meta-style }}', style.text())
+    head = head.replace('{{ meta-script }}', script.text())
+    head = head.replace('{{ meta-noscript }}', noscript.text())
+    head = head.replace('{{ meta-body-attrs }}', bodyAttrs.text())
+
+    res.write(head)
   })
 
   renderStream.on('data', (chunk) => {

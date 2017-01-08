@@ -1,10 +1,13 @@
 <template>
   <div id="app">
+    <c-header />
     <router-view class="view"></router-view>
   </div>
 </template>
 
 <script>
+  import Header from '~components/Header.vue'
+
   export default {
     name: 'app',
     metaInfo: {
@@ -18,6 +21,44 @@
       link: [
         { rel: 'manifest', href: '/manifest.json' }
       ]
+    },
+    components: {
+      'c-header': Header
     }
   }
 </script>
+
+<style lang="stylus">
+  *,
+  *:before,
+  *:after {
+    box-sizing: inherit;
+  }
+
+  html {
+    box-sizing: border-box;
+  }
+
+  html,
+  body {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    min-height: 100%;
+  }
+
+  body {
+    font: 16px / 1.5 'Helvetica Neue', sans-serif;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+</style>
