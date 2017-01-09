@@ -11,7 +11,7 @@
   }
 </script>
 
-<style lang="stylus">
+<style lang="scss">
   .c-header {
     position: relative;
   }

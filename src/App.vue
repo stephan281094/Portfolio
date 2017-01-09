@@ -29,7 +29,7 @@
   }
 </script>
 
-<style lang="stylus">
+<style lang="scss">
   *,
   *:before,
   *:after {

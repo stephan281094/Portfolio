@@ -23,8 +23,8 @@ const config = Object.assign({}, base, {
 
 if (process.env.NODE_ENV === 'production') {
   vueConfig.loaders = {
-    stylus: ExtractTextPlugin.extract({
-      loader: 'css-loader!stylus-loader',
+    scss: ExtractTextPlugin.extract({
+      loader: 'css-loader!sass-loader',
       fallbackLoader: 'vue-style-loader'
     })
   }
