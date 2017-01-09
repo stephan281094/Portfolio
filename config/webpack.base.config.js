@@ -9,6 +9,7 @@ module.exports = {
       'es6-promise',
       'vue',
       'vue-router',
+      'vue-meta',
       'vuex',
       'vuex-router-sync'
     ]
