@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <c-header />
-    <router-view class="view"></router-view>
+    <router-view></router-view>
   </div>
 </template>
 
@@ -19,7 +19,8 @@
         { name: 'theme-color', content: '#000' }
       ],
       link: [
-        { rel: 'manifest', href: '/manifest.json' }
+        { rel: 'manifest', href: '/manifest.json' },
+        { rel: 'icon', href: '/favicon.ico' }
       ]
     },
     components: {
