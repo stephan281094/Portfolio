@@ -40,7 +40,7 @@ if (process.env.NODE_ENV === 'production') {
       }
     }),
     new SWPrecachePlugin({
-      cacheId: 'vue-hn',
+      cacheId: 'stephandevries-portfolio',
       filename: 'service-worker.js',
       dontCacheBustUrlsMatching: /./,
       staticFileGlobsIgnorePatterns: [/index\.html$/, /\.map$/]
