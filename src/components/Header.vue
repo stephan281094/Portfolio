@@ -14,16 +14,16 @@
 <style lang="scss">
   .c-header {
     position: relative;
-  }
 
-  .c-header__link {
-    margin: 1rem;
-    color: #000;
-    display: inline-block;
-    text-decoration: none;
-  }
+    &__link {
+      margin: 1rem;
+      color: #000;
+      display: inline-block;
+      text-decoration: none;
 
-  .c-header__link:hover {
-    text-decoration: underline;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
   }
 </style>
