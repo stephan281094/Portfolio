@@ -1,17 +1,17 @@
 <template>
-  <div id="app">
-    <c-header />
+  <div class="app">
+    <c-navigation />
     <router-view></router-view>
   </div>
 </template>
 
 <script>
-  import Header from '~components/Header.vue'
+  import Navigation from '~components/Navigation.vue'
 
   export default {
     name: 'app',
     metaInfo: {
-      titleTemplate: '%s - Stephan de Vries',
+      title: 'Portfolio',
       meta: [
         { charset: 'utf-8' },
         { name: 'mobile-web-app-capable', content: 'yes' },
@@ -24,7 +24,7 @@
       ]
     },
     components: {
-      'c-header': Header
+      'c-navigation': Navigation
     }
   }
 </script>
@@ -46,6 +46,8 @@
     margin: 0;
     height: 100%;
     min-height: 100%;
+    display: flex;
+    flex-direction: column;
   }
 
   body {
@@ -61,5 +63,17 @@
   p {
     margin-top: 0;
     margin-bottom: 1rem;
+  }
+
+  .o-block {
+    margin-top: 1px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    padding: 5%;
+  }
+
+  .o-body {
+    max-width: 600px;
   }
 </style>
