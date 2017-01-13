@@ -4,7 +4,7 @@ const vueConfig = require('./vue-loader.config')
 module.exports = {
   devtool: '#source-map',
   entry: {
-    app: './src/client.js',
+    app: './src/client/index.js',
     vendor: [
       'es6-promise',
       'vue',
@@ -22,9 +22,9 @@ module.exports = {
   resolve: {
     alias: {
       '~public': path.resolve(__dirname, '../public'),
-      '~pages': path.resolve(__dirname, '../src/pages'),
-      '~components': path.resolve(__dirname, '../src/components'),
-      'styles': path.resolve(__dirname, '../src/styles')
+      '~pages': path.resolve(__dirname, '../src/client/pages'),
+      '~components': path.resolve(__dirname, '../src/client/components'),
+      'styles': path.resolve(__dirname, '../src/client/styles')
     }
   },
   module: {

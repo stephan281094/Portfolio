@@ -1,4 +1,4 @@
-import { app, router, store } from './app'
+import { app, router, store } from '../client/app'
 
 const isDev = process.env.NODE_ENV !== 'production'
 const meta = app.$meta()
