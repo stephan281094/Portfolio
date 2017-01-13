@@ -1,6 +1,5 @@
 <template>
   <div class="app">
-    <c-navigation />
     <router-view></router-view>
   </div>
 </template>
@@ -37,14 +36,15 @@
   }
 
   html {
+    height: 100%;
     box-sizing: border-box;
   }
 
   html,
   body {
+    position: relative;
     padding: 0;
     margin: 0;
-    height: 100%;
     min-height: 100%;
     display: flex;
     flex-direction: column;
@@ -52,6 +52,10 @@
 
   body {
     font: 16px / 1.5 'Helvetica Neue', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    align-items: stretch;
   }
 
   h1,
@@ -61,19 +65,37 @@
   h5,
   h6,
   p {
-    margin-top: 0;
-    margin-bottom: 1rem;
+    margin: 0;
   }
 
-  .o-block {
-    margin-top: 1px;
-    background-color: #fff;
+  a {
+    text-decoration: none;
+    color: inherit;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  ul {
+    padding: 0 25px;
+    margin: 0;
+  }
+
+  .app {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
     display: flex;
+    justify-content: stretch;
+    align-items: stretch;
     flex-direction: column;
-    padding: 5%;
+    flex: 1;
   }
 
-  .o-body {
-    max-width: 600px;
+  .o-content {
+    padding: 0 5%;
+    display: flex;
   }
 </style>

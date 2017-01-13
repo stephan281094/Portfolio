@@ -1,15 +1,11 @@
 <template>
-  <div>
-    <div class="c-hero c-hero--orange">
-      <h1>{{ post.title }}</h1>
-      <p>{{ post.description }}</p>
-    </div>
-    <div class="o-block">
-      <div class="o-body">
-        <h4>The problem</h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate facere quisquam aliquam ad. Veritatis perferendis non officia doloribus doloremque inventore, unde aspernatur sequi amet a maiores reiciendis provident? Vero, autem.</p>
-      </div>
-    </div>
+  <div class="o-content">
+    <h1>{{ post.title }}</h1>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde ea odio sit
+      dolorem, dolores reiciendis veniam necessitatibus soluta reprehenderit, at
+      error placeat cumque quisquam, perferendis accusantium nisi voluptas sunt, dolore.
+    </p>
   </div>
 </template>
 
@@ -30,6 +26,12 @@
           return post.slug === this.$route.params.slug
         })
       }
+    },
+    mounted () {
+      this.$store.commit('setBreadcrumbs', [
+        { name: 'Blog', to: '/blog' },
+        { name: this.post ? this.post.title : '...' },
+      ])
     }
   }
 </script>

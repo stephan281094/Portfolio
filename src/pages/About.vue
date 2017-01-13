@@ -1,17 +1,12 @@
 <template>
-  <div>
-    <div class="c-hero c-hero--blue">
-      <h1>About</h1>
-      <p>Who am I and what do I do?</p>
-    </div>
-    <div class="o-block">
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus
-        omnis nulla, suscipit natus sit hic eveniet, exercitationem laudantium
-        praesentium facere numquam, voluptatem. Laborum dicta officiis illo
-        voluptate laudantium sapiente veritatis.
-      </p>
-    </div>
+  <div class="o-content">
+    <h1>About</h1>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus
+      omnis nulla, suscipit natus sit hic eveniet, exercitationem laudantium
+      praesentium facere numquam, voluptatem. Laborum dicta officiis illo
+      voluptate laudantium sapiente veritatis.
+    </p>
   </div>
 </template>
 
@@ -21,11 +16,13 @@
     metaInfo: {
       title: 'About',
       meta: [
-        { name: 'description', content: 'Who am I and what do I do?' }
+        { name: 'description', content: 'Who is Stephan and what does he do?' }
       ]
     },
     mounted () {
-      console.log('yaay, mounted.')
+      this.$store.commit('setBreadcrumbs', [
+        { name: 'About' }
+      ])
     }
   }
 </script>

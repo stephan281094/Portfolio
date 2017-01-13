@@ -72,7 +72,11 @@ const store = new Vuex.Store({
     ]
   },
   actions: {},
-  mutations: {},
+  mutations: {
+    setBreadcrumbs (state, breadcrumbs) {
+      state.breadcrumbs = breadcrumbs
+    }
+  },
   getters: {}
 })
 

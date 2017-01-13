@@ -1,21 +1,16 @@
 <template>
-  <div>
-    <div class="c-hero c-hero--green">
-      <h1>Projects</h1>
-      <p>An overview of projects I worked on.</p>
-    </div>
-    <div class="o-block">
-      <div class="c-projects">
-        <project v-for="project in $store.state.projects" :item="project"
-          :to="`/projects/${project.slug}`" />
-      </div>
-    </div>
+  <div class="o-content">
+    <ul>
+      <li v-for="project in $store.state.projects">
+        <router-link :to="`/projects/${project.slug}`">
+          {{ project.title }}
+        </router-link>
+      </li>
+    </ul>
   </div>
 </template>
 
 <script>
-  import Item from '~components/Item.vue'
-
   export default {
     name: 'page-projects',
     metaInfo: {
@@ -27,17 +22,10 @@
         }
       ]
     },
-    components: {
-      project: Item
+    mounted () {
+      this.$store.commit('setBreadcrumbs', [
+        { name: 'Projects' }
+      ])
     }
   }
 </script>
-
-<style>
-  .c-projects {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-</style>

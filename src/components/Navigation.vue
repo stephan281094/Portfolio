@@ -5,11 +5,14 @@
         Stephan
       </router-link>
     </div>
-    <div class="c-nav__breadcrumb" v-for="breadcrumb in breadcrumbs">
-      <span class="c-nav__separator">/</span>
-      <router-link :to="breadcrumb.to" class="c-nav__item">
-        {{ breadcrumb.name }}
-      </router-link>
+    <div class="c-nav__breadcrumbs">
+      <div class="c-nav__breadcrumb" v-for="breadcrumb in breadcrumbs">
+        <span class="c-nav__separator">/</span>
+        <router-link v-if="breadcrumb.to" :to="breadcrumb.to" class="c-nav__item">
+          {{ breadcrumb.name }}
+        </router-link>
+        <span v-else class="c-nav__item">{{ breadcrumb.name }}</span>
+      </div>
     </div>
   </nav>
 </template>
@@ -17,18 +20,10 @@
 <script>
   export default {
     name: 'navigation',
-    data () {
-      return {
-        breadcrumbs: [
-          {
-            name: 'About',
-            to: '/about'
-          },
-          {
-            name: 'Stephan de Vries',
-            to: '/about/stephan'
-          }
-        ]
+    props: {
+      breadcrumbs: {
+        type: Array,
+        required: true
       }
     }
   }
@@ -41,6 +36,8 @@
     flex-direction: row;
     align-items: center;
     padding: 5%;
+    width: 100%;
+    white-space: nowrap;
 
     &__item {
       color: #000;
@@ -49,10 +46,7 @@
       font-size: 12px;
       letter-spacing: 1px;
       display: inline-block;
-
-      &:hover {
-        text-decoration: underline;
-      }
+      white-space: nowrap;
 
       &--logo {
         font-weight: 600;
@@ -65,9 +59,15 @@
       margin-right: .5rem;
     }
 
+    &__breadcrumbs {
+      // overflow-x: auto;
+      width: 100%;
+    }
+
     &__breadcrumb {
       margin: .25rem;
       display: inline-block;
+      white-space: nowrap;
     }
   }
 </style>
