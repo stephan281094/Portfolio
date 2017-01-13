@@ -1,17 +1,20 @@
 <template>
-  <div class="o-content">
+  <main class="o-main">
+    <navigation :breadcrumbs="breadcrumbs" />
     <h1>{{ project.title }}</h1>
     <p>
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde ea odio sit
       dolorem, dolores reiciendis veniam necessitatibus soluta reprehenderit, at
       error placeat cumque quisquam, perferendis accusantium nisi voluptas sunt, dolore.
     </p>
-  </div>
+  </main>
 </template>
 
 <script>
+  import Navigation from '~components/Navigation.vue'
+
   export default {
-    name: 'project-detail',
+    name: 'page-project',
     metaInfo () {
       return {
         title: this.project.title,
@@ -27,11 +30,16 @@
         })
       }
     },
-    mounted () {
-      this.$store.commit('setBreadcrumbs', [
-        { name: 'Projects', to: '/projects' },
-        { name: this.project ? this.project.title : '...' },
-      ])
+    computed: {
+      breadcrumbs () {
+        return [
+          { name: 'Projects', to: '/projects' },
+          { name: this.project ? this.project.title : '...' },
+        ]
+      }
+    },
+    components: {
+      navigation: Navigation
     }
   }
 </script>

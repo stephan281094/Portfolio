@@ -23,7 +23,8 @@ module.exports = {
     alias: {
       '~public': path.resolve(__dirname, '../public'),
       '~pages': path.resolve(__dirname, '../src/pages'),
-      '~components': path.resolve(__dirname, '../src/components')
+      '~components': path.resolve(__dirname, '../src/components'),
+      'styles': path.resolve(__dirname, '../src/styles')
     }
   },
   module: {

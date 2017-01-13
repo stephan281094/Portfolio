@@ -5,8 +5,7 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
   state: {
-    breadcrumbs: [],
-    posts: [
+    stories: [
       {
         slug: 'my-fifth-post',
         title: 'My fifth post',

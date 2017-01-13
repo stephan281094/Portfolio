@@ -7,10 +7,10 @@ Vue.use(Meta)
 
 import Home from '~pages/Home.vue'
 import About from '~pages/About.vue'
-import ProjectOverview from '~pages/ProjectOverview.vue'
-import ProjectDetail from '~pages/ProjectDetail.vue'
-import Blog from '~pages/Blog.vue'
-import Post from '~pages/Post.vue'
+import Projects from '~pages/Projects.vue'
+import Project from '~pages/Project.vue'
+import Stories from '~pages/Stories.vue'
+import Story from '~pages/Story.vue'
 
 export default new Router({
   mode: 'history',
@@ -22,24 +22,23 @@ export default new Router({
     },
     {
       path: '/about',
-      component: About,
+      component: About
     },
     {
       path: '/projects',
-      component: ProjectOverview,
+      component: Projects
     },
     {
       path: '/projects/:slug',
-      component: ProjectDetail,
+      component: Project
     },
     {
-      path: '/blog',
-      component: Blog,
-      name: 'blog'
+      path: '/stories',
+      component: Stories
     },
     {
-      path: '/blog/:slug',
-      component: Post
+      path: '/stories/:slug',
+      component: Story
     }
   ]
 })

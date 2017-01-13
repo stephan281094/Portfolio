@@ -1,5 +1,5 @@
 <template>
-  <div class="app">
+  <div class="o-app">
     <router-view></router-view>
   </div>
 </template>
@@ -29,60 +29,9 @@
 </script>
 
 <style lang="scss">
-  *,
-  *:before,
-  *:after {
-    box-sizing: inherit;
-  }
+  @import '~styles/index.scss';
 
-  html {
-    height: 100%;
-    box-sizing: border-box;
-  }
-
-  html,
-  body {
-    position: relative;
-    padding: 0;
-    margin: 0;
-    min-height: 100%;
-    display: flex;
-    flex-direction: column;
-  }
-
-  body {
-    font: 16px / 1.5 'Helvetica Neue', sans-serif;
-    display: flex;
-    flex-direction: column;
-    justify-content: stretch;
-    align-items: stretch;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  p {
-    margin: 0;
-  }
-
-  a {
-    text-decoration: none;
-    color: inherit;
-
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-
-  ul {
-    padding: 0 25px;
-    margin: 0;
-  }
-
-  .app {
+  .o-app {
     position: relative;
     width: 100%;
     height: 100%;
@@ -92,10 +41,5 @@
     align-items: stretch;
     flex-direction: column;
     flex: 1;
-  }
-
-  .o-content {
-    padding: 0 5%;
-    display: flex;
   }
 </style>

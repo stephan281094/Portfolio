@@ -1,0 +1,37 @@
+body,
+p, blockquote, pre,
+dl, dd, ol,
+form, fieldset, legend,
+figure,
+table, th, td, caption,
+hr {
+  margin:  0;
+  padding: 0;
+}
+
+html {
+  height: 100%;
+}
+
+html,
+body {
+  position: relative;
+  padding: 0;
+  margin: 0;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+body {
+  font: 16px / 1.5 'Helvetica Neue', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  align-items: stretch;
+}
+
+ul {
+  padding: 0 25px;
+  margin: 0;
+}

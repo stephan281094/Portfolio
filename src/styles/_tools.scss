@@ -1,0 +1,22 @@
+@mixin font-smoothing {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+@mixin underline ($color: #111, $weight: 1px, $offset: 0) {
+  background-image: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0) $offset,
+    $color $offset,
+    $color ($offset + $weight),
+    rgba(0, 0, 0, 0) ($offset + $weight)
+  );
+}
+
+@mixin no-select {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}

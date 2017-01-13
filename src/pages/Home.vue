@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <main class="o-main o-main--home">
     <div class="c-head">
       <h1 class="c-head__title">Stephan de Vries</h1>
       <p class="c-head__description">
@@ -19,8 +19,8 @@
           An overview of projects I worked&nbsp;on.
         </p>
       </router-link>
-      <router-link class="c-item" to="/blog">
-        <h2 class="c-item__title">Blog</h2>
+      <router-link class="c-item" to="/stories">
+        <h2 class="c-item__title">Stories</h2>
         <p class="c-item__description">
           A personal blog about&nbsp;coding.
         </p>
@@ -40,25 +40,11 @@
           content: 'A portfolio website of Stephan de Vries.'
         }
       ]
-    },
-    mounted () {
-      this.$store.commit('setBreadcrumbs', [])
     }
   }
 </script>
 
 <style lang="scss">
-  main {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    min-height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    flex: 1 0;
-  }
-
   .c-head {
     padding: 1rem;
     text-align: center;
@@ -97,11 +83,13 @@
     outline: none;
     transform: scale(1);
     transition: transform .1s;
+    background-image: none;
 
     &:hover,
     &:focus {
       background-color: #eee;
       text-decoration: none;
+      background-image: none;
     }
 
     &:active {
