@@ -1,26 +1,26 @@
 {
-  "name": "Portfolio - Stephan de Vries",
+  "name": "Stephan",
   "short_name": "Portfolio",
   "icons": [{
-      "src": "/static/images/logo-120.png",
+      "src": "/static/images/logo-120.jpg",
       "sizes": "120x120",
-      "type": "image/png"
+      "type": "image/jpeg"
     }, {
-      "src": "/static/images/logo-144.png",
+      "src": "/static/images/logo-144.jpg",
       "sizes": "144x144",
-      "type": "image/png"
+      "type": "image/jpeg"
     }, {
-      "src": "/static/images/logo-152.png",
+      "src": "/static/images/logo-152.jpg",
       "sizes": "152x152",
-      "type": "image/png"
+      "type": "image/jpeg"
     }, {
-      "src": "/static/images/logo-192.png",
+      "src": "/static/images/logo-192.jpg",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/jpeg"
     },{
-      "src": "/static/images/logo-384.png",
+      "src": "/static/images/logo-384.jpg",
       "sizes": "384x384",
-      "type": "image/png"
+      "type": "image/jpeg"
     }],
   "start_url": "/",
   "background_color": "#000",

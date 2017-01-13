@@ -10,19 +10,19 @@
       <router-link class="c-item" to="/about">
         <h2 class="c-item__title">About</h2>
         <p class="c-item__description">
-          Who is Stephan and what does he&nbsp;do?
+          Get to know&nbsp;me.
         </p>
       </router-link>
       <router-link class="c-item" to="/projects">
         <h2 class="c-item__title">Projects</h2>
         <p class="c-item__description">
-          An overview of projects I worked&nbsp;on.
+          Discover projects I worked&nbsp;on.
         </p>
       </router-link>
       <router-link class="c-item" to="/stories">
         <h2 class="c-item__title">Stories</h2>
         <p class="c-item__description">
-          A personal blog about&nbsp;coding.
+          Read stories written by&nbsp;me.
         </p>
       </router-link>
     </div>
