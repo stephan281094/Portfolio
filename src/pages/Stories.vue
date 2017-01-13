@@ -1,13 +1,16 @@
 <template>
   <main class="o-main">
     <navigation :breadcrumbs="[{ name: 'Stories' }]" />
-    <ul>
-      <li v-for="story in $store.state.stories">
-        <router-link :to="`/stories/${story.slug}`">
-          {{ story.title }}
-        </router-link>
-      </li>
-    </ul>
+    <div class="o-content">
+      <h1 class="o-content__title">Stories</h1>
+      <ul>
+        <li v-for="story in $store.state.stories">
+          <router-link :to="`/stories/${story.slug}`">
+            {{ story.title }}
+          </router-link>
+        </li>
+      </ul>
+    </div>
   </main>
 </template>
 

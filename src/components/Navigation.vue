@@ -38,6 +38,7 @@
     padding: 5%;
     width: 100%;
     white-space: nowrap;
+    overflow-x: auto;
 
     &__item {
       color: #000;
@@ -59,15 +60,14 @@
       margin-right: .5rem;
     }
 
-    &__breadcrumbs {
-      // overflow-x: auto;
-      width: 100%;
-    }
-
     &__breadcrumb {
       margin: .25rem;
       display: inline-block;
       white-space: nowrap;
+
+      &:last-child {
+        margin-right: 5%;
+      }
     }
   }
 </style>

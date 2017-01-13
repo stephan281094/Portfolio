@@ -1,12 +1,14 @@
 <template>
   <main class="o-main">
     <navigation :breadcrumbs="breadcrumbs" />
-    <h1>{{ story.title }}</h1>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde ea odio sit
-      dolorem, dolores reiciendis veniam necessitatibus soluta reprehenderit, at
-      error placeat cumque quisquam, perferendis accusantium nisi voluptas sunt, dolore.
-    </p>
+    <div class="o-content">
+      <h1 class="o-content__title">{{ story.title }}</h1>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde ea odio sit
+        dolorem, dolores reiciendis veniam necessitatibus soluta reprehenderit, at
+        error placeat cumque quisquam, perferendis accusantium nisi voluptas sunt, dolore.
+      </p>
+    </div>
   </main>
 </template>
 
