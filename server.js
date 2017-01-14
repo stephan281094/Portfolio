@@ -55,6 +55,9 @@ app.use(compression({ threshold: 0 }))
 app.use('/service-worker.js', serve('./dist/service-worker.js'))
 app.use('/dist', serve('./dist'))
 
+// Expose graphQL end point
+app.use('/graphql', require('./src/server/graphql'))
+
 app.get('*', (req, res) => {
   if (!renderer) {
     return res.end('waiting for compilation... refresh in a moment.')
