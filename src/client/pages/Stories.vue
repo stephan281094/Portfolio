@@ -17,6 +17,10 @@
 <script>
   import Navigation from '~components/Navigation.vue'
 
+  const fetchStories = (store) => {
+    return store.dispatch('stories.fetchAll')
+  }
+
   export default {
     name: 'page-stories',
     metaInfo: {
@@ -28,6 +32,10 @@
         }
       ]
     },
+    beforeMount () {
+      fetchStories(this.$store)
+    },
+    preFetch: fetchStories,
     components: {
       navigation: Navigation
     }

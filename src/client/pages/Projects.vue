@@ -17,6 +17,10 @@
 <script>
   import Navigation from '~components/Navigation.vue'
 
+  const fetchProjects = (store) => {
+    return store.dispatch('projects.fetchAll')
+  }
+
   export default {
     name: 'page-projects',
     metaInfo: {
@@ -28,6 +32,10 @@
         }
       ]
     },
+    beforeMount () {
+      fetchProjects(this.$store)
+    },
+    preFetch: fetchProjects,
     components: {
       navigation: Navigation
     }
