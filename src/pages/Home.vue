@@ -107,7 +107,7 @@
       text-align: center;
       justify-content: center;
       align-items: center;
-      color: #789;
+      color: #505768;
       font-weight: 200;
     }
 
@@ -118,7 +118,7 @@
     }
 
     &__description {
-      color: #789;
+      color: #505768;
       font-weight: 200;
       letter-spacing: 2px;
       font-size: 16px;
